@@ -5,8 +5,10 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './list-information.component.html',
   styleUrls: ['./list-information.component.scss']
 })
+
 export class ListInformationComponent implements OnInit {
   @Input() info;
+
   constructor() { }
 
   ngOnInit(): void {

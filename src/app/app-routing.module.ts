@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'browser', loadChildren:() => import('./browser3D/browser3D.module')
-    .then(mod=>mod.Browser3DModule) }
+  {
+    path: 'list',
+    loadChildren: () => import('./render/render.module').then(m => m.RenderModule)
+  },
+  {
+    path: 'details',
+    loadChildren: () => import('./render/render.module').then(m => m.RenderModule)
+  }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
