@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { publishReplay, refCount, catchError } from 'rxjs/operators';
-
-type Objects = { text: string, urls: string };
+import { Objects } from '../interfaces/objects.interface';
 
 @Injectable({
   providedIn: 'root'

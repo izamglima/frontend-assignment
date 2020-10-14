@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './../../../services/app.service';
+import { ActivatedRoute } from "@angular/router";
+import { Objects } from './../../../interfaces/objects.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
+
 export class ListComponent implements OnInit {
-  objects;
+  objects: Observable<Objects>;
+
   test = [{
     name: 'Circle',
     description: 'Rounded line'
@@ -20,13 +24,12 @@ export class ListComponent implements OnInit {
     name: 'Circle3',
     description: 'Rounded line'
   }];
-  constructor(private appService: AppService) { }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.appService.getObjects().subscribe((response: any) => {
-      this.objects = response;
-      console.log(this.objects);
-    });
+
+    this.objects = this.route.snapshot.data.objects;
   }
 
 }
