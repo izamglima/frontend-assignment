@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListInformationComponent } from './list-information.component';
+import { DrawThreeDComponent } from './draw-three-d.component';
 
-describe('ListInformationComponent', () => {
-  let component: ListInformationComponent;
-  let fixture: ComponentFixture<ListInformationComponent>;
+describe('DrawThreeDComponent', () => {
+  let component: DrawThreeDComponent;
+  let fixture: ComponentFixture<DrawThreeDComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListInformationComponent ]
+      declarations: [ DrawThreeDComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListInformationComponent);
+    fixture = TestBed.createComponent(DrawThreeDComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
