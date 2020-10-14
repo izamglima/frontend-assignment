@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DisplayModelsComponent } from './display-models/display-models.component';
+import { DisplayObjectsComponent } from './display-objects/display-objects.component';
 import { DrawThreeDComponent } from './draw-three-d/draw-three-d.component';
 
 @NgModule({
   declarations: [
-    DisplayModelsComponent,
+    DisplayObjectsComponent,
     DrawThreeDComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    DisplayModelsComponent,
+    DisplayObjectsComponent,
     DrawThreeDComponent
   ]
 })

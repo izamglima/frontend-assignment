@@ -6,7 +6,6 @@ import { DetailsComponent } from './details/details.component';
 import { SharedModule } from '../../modules/shared/shared.module';
 import { RenderResolve } from './render.resolve';
 
-console.warn("rendering module loaded");
 @NgModule({
   declarations: [ListComponent, DetailsComponent],
   imports: [
