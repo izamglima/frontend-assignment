@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RenderRoutingModule } from './render-routing.module';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
-import { SharedModule } from './../shared/shared.module';
+import { SharedModule } from '../../modules/shared/shared.module';
 
 console.warn("rendering module loaded");
 @NgModule({
