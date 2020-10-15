@@ -7,10 +7,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DisplayObjectsComponent implements OnInit {
   @Input() info;
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.info);
+    //console.log(this.info);
   }
 
 }

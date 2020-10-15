@@ -1,7 +1,7 @@
 {
     "text": "3D objects",
     "urls": [
-      "https://pastebin.com/raw/90z3K3K7",
-      "https://pastebin.com/raw/z9v5kGGr"
+      "assets/cube.json",
+      "assets/sphere.json"
     ]
 }

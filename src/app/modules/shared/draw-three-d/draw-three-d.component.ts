@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-draw-three-d',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./draw-three-d.component.scss']
 })
 export class DrawThreeDComponent implements OnInit {
+  @Input() data;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.data);
   }
 
 }

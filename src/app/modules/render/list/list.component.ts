@@ -30,6 +30,7 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
 
     this.objects = this.route.snapshot.data.objects;
+    //console.log(this.objects);
   }
 
 }

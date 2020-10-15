@@ -8,6 +8,7 @@ import { Objects } from './../../interfaces/objects.interface';
 export class RenderResolve implements Resolve<Objects> {
   constructor(private appService: AppService) {}
 
+  //Data should be loaded before navigation
   resolve(route: ActivatedRouteSnapshot): Observable<Objects> {
     return this.appService.getObjects();
   }

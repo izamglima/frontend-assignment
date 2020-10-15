@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { publishReplay, refCount, catchError } from 'rxjs/operators';
+import { publishReplay, refCount, catchError, map } from 'rxjs/operators';
 import { Objects } from '../interfaces/objects.interface';
 
 @Injectable({
@@ -16,13 +16,26 @@ export class AppService {
   getObjects(): Observable<Objects> {
     if (!this.objects) {
       this.objects = this.httpClient.get<Objects>('assets/objects.json').pipe(
-        publishReplay(1),
+        publishReplay(1), //cache
         refCount(),
         catchError(this.handleError)
       );
     }
+    this.objects.subscribe(response => this.getObjectsDetails(response));
 
     return this.objects;
+  }
+
+  getObjectsDetails(objects): any {
+    console.log(objects);
+
+    objects.urls.map((url) => {
+      this.httpClient.get<any>(url).pipe(
+        publishReplay(1), //cache
+        refCount(),
+        catchError(this.handleError)
+      ).subscribe(any => console.log(any));
+    })
   }
 
   handleError(error: HttpErrorResponse): Observable<any> {
