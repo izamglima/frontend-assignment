@@ -1,3 +1,7 @@
 <a routerLink="/details/details">test</a>
-<p>{{info.name}}</p>
-<p>{{info.description}}</p>
+<p>{{info.text}}</p>
+
+<div *ngFor="let url of info.urls">
+    <p>{{info.urls}}</p>
+</div>
+

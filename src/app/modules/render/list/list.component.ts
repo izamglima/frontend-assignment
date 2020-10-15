@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 import { Objects } from './../../../interfaces/objects.interface';
 import { Observable } from 'rxjs';
+import { ObjectDetails } from 'src/app/interfaces/object.details.interface';
 
 @Component({
   selector: 'app-list',
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 
 export class ListComponent implements OnInit {
   objects: Observable<Objects>;
+  objectDetails: ObjectDetails;
 
   test = [{
     name: 'Circle',
@@ -31,6 +33,7 @@ export class ListComponent implements OnInit {
 
     this.objects = this.route.snapshot.data.objects;
     //console.log(this.objects);
+
   }
 
 }

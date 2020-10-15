@@ -10,6 +10,7 @@ import { Objects } from '../interfaces/objects.interface';
 
 export class AppService {
   objects: Observable<Objects>;
+  test;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,7 +22,9 @@ export class AppService {
         catchError(this.handleError)
       );
     }
-    this.objects.subscribe(response => this.getObjectsDetails(response));
+    this.objects.subscribe(response => {
+      this.test = this.getObjectsDetails(response);
+    });
 
     return this.objects;
   }
@@ -30,11 +33,11 @@ export class AppService {
     console.log(objects);
 
     objects.urls.map((url) => {
-      this.httpClient.get<any>(url).pipe(
+      return this.httpClient.get<any>(url).pipe(
         publishReplay(1), //cache
         refCount(),
         catchError(this.handleError)
-      ).subscribe(any => console.log(any));
+      ).subscribe(detail => console.log(detail));
     })
   }
 
