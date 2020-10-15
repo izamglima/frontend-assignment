@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { publishReplay, refCount, catchError, map } from 'rxjs/operators';
+import { Observable, throwError, merge } from 'rxjs';
+import { publishReplay, refCount, catchError, map, mergeAll, mergeMap } from 'rxjs/operators';
 import { Objects } from '../interfaces/objects.interface';
+import { ObjectDetails } from '../interfaces/object.details.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { Objects } from '../interfaces/objects.interface';
 
 export class AppService {
   objects: Observable<Objects>;
-  test;
+  objectDetails: Observable<ObjectDetails[]>;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,24 +22,29 @@ export class AppService {
         refCount(),
         catchError(this.handleError)
       );
-    }
-    this.objects.subscribe(response => {
-      this.test = this.getObjectsDetails(response);
-    });
+
+      this.objects.subscribe(objects => console.log(objects));
+    };
 
     return this.objects;
   }
 
-  getObjectsDetails(objects): any {
-    console.log(objects);
+  getObjectsDetails(objects): Observable<ObjectDetails[]> {
+    if (!this.objectDetails) {
+      this.objectDetails = merge(
+        objects.urls.map((url) => {
+          return this.httpClient.get<ObjectDetails>(url).pipe(
+            publishReplay(1),
+            refCount(),
+            catchError(this.handleError)
+          );
+        })
+      ).pipe(mergeAll())
 
-    objects.urls.map((url) => {
-      return this.httpClient.get<any>(url).pipe(
-        publishReplay(1), //cache
-        refCount(),
-        catchError(this.handleError)
-      ).subscribe(detail => console.log(detail));
-    })
+      this.objectDetails.subscribe(objectDetails => console.log(objectDetails));
+    }
+
+    return this.objectDetails;
   }
 
   handleError(error: HttpErrorResponse): Observable<any> {

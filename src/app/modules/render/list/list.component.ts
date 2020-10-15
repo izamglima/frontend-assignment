@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Objects } from './../../../interfaces/objects.interface';
-import { Observable } from 'rxjs';
-import { ObjectDetails } from 'src/app/interfaces/object.details.interface';
+import { AppService } from './../../../services/app.service';
 
 @Component({
   selector: 'app-list',
@@ -11,29 +9,16 @@ import { ObjectDetails } from 'src/app/interfaces/object.details.interface';
 })
 
 export class ListComponent implements OnInit {
-  objects: Observable<Objects>;
-  objectDetails: ObjectDetails;
+  objects: any;
 
-  test = [{
-    name: 'Circle',
-    description: 'Rounded line'
-  },
-  {
-    name: 'Circle2',
-    description: 'Rounded line'
-  },
-  {
-    name: 'Circle3',
-    description: 'Rounded line'
-  }];
-
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private service: AppService) { }
 
   ngOnInit(): void {
-
-    this.objects = this.route.snapshot.data.objects;
-    //console.log(this.objects);
-
+    this.objects = {
+      text: this.route.snapshot.data.response.objects.text,
+      list: this.route.snapshot.data.response.details.map(detail => {
+        return { text: detail.text , description: detail.description };
+      })
+    };
   }
-
 }

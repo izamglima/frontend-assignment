@@ -11,7 +11,7 @@ export class DrawThreeDComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.data);
+
   }
 
 }
