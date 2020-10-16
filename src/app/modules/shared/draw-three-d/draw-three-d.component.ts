@@ -5,6 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './draw-three-d.component.html',
   styleUrls: ['./draw-three-d.component.scss']
 })
+
 export class DrawThreeDComponent implements OnInit {
   @Input() data;
 

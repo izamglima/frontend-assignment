@@ -6,7 +6,7 @@ import { RenderResolve } from './render.resolve';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'list',
         component: ListComponent,
         resolve: {
             response: RenderResolve

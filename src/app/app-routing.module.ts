@@ -8,11 +8,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'list',
+    path: 'objects',
     loadChildren: () => import('./modules/render/render.module').then(m => m.RenderModule)
   },
   {
-    path: 'details',
+    path: 'obects',
     loadChildren: () => import('./modules/render/render.module').then(m => m.RenderModule)
   }
 ];

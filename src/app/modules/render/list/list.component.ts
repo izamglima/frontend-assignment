@@ -20,5 +20,8 @@ export class ListComponent implements OnInit {
         return { text: detail.text , description: detail.description };
       })
     };
+
+    // put the whole object in local storage
+    // on details component get the object and show the details and 3d to be rendered in shared draw
   }
 }

@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./display-objects.component.scss']
 })
 export class DisplayObjectsComponent implements OnInit {
-  @Input() info;
+  @Input() objectsList;
 
   constructor() { }
 

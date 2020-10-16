@@ -1,9 +1,8 @@
+<p>{{objectsList.text}}</p>
 
-<p>{{info.text}}</p>
-
-<div *ngFor="let item of info.list">
+<div *ngFor="let item of objectsList.list">
     <p>{{item.text}}</p>
     <p>{{item.description}}</p>
-    <a routerLink="['/details/details', item]">test</a>
+    <a routerLink="/objects/details">Open 3D</a>
 </div>
 
