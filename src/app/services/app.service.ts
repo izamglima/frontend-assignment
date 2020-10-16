@@ -22,8 +22,6 @@ export class AppService {
         refCount(),
         catchError(this.handleError)
       );
-
-      this.objects.subscribe(objects => console.log(objects));
     };
 
     return this.objects;
@@ -40,8 +38,6 @@ export class AppService {
           );
         })
       ).pipe(mergeAll())
-
-      this.objectDetails.subscribe(objectDetails => console.log(objectDetails));
     }
 
     return this.objectDetails;

@@ -23,7 +23,6 @@ export class DetailsComponent implements OnInit {
     this.camera.position.z = 100;
 
     this.loader.load('./assets/cube.obj', function(object) {
-        console.log(object);
         this.scene.add(object)
       },
       // called when loading is in progresses
@@ -62,7 +61,6 @@ export class DetailsComponent implements OnInit {
     this.objectList = JSON.parse(retrievedData).map(objectDetail => JSON.parse(objectDetail));
 
     this.objectDetails = this.objectList.find(test => test.text = this.object);
-    console.log(this.objectDetails);
   }
 
 }
