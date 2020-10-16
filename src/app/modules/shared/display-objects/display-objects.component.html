@@ -1,7 +1,14 @@
-<p>{{objectsList.text}}</p>
-
-<div *ngFor="let item of objectsList.list">
-    <p>{{item.text}}</p>
-    <p>{{item.description}}</p>
-    <a routerLink="/objects/details/{{item.text}}">Open 3D</a>
-</div>
+<main class="jumbotron jumbotron-fluid text-center">
+    <h1 class="display-4">{{objectsList.text}}</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card text-center col-sm-4"  *ngFor="let item of objectsList.list">
+                <div class="card-body">
+                <h5 class="card-title">{{item.text}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{item.description}}</h6>
+                <a routerLink="/objects/details/{{item.text}}" class="card-link">Open 3D</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
