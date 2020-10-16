@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class DetailsComponent implements OnInit {
   object;
   objectList;
-  objectDetail;
+  objectDetails;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -21,8 +21,8 @@ export class DetailsComponent implements OnInit {
     retrievedData = localStorage.getItem('objectDetails');
     this.objectList = JSON.parse(retrievedData).map(objectDetail => JSON.parse(objectDetail));
 
-    this.objectDetail = this.objectList.find(test => test.text = this.object);
-    console.log(this.objectDetail);
+    this.objectDetails = this.objectList.find(test => test.text = this.object);
+    console.log(this.objectDetails);
   }
 
 }

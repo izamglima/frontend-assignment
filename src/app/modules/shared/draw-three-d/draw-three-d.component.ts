@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 
 export class DrawThreeDComponent implements OnInit {
-  @Input() data;
+  @Input() details;
 
   constructor() { }
 
