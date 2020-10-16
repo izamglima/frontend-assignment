@@ -3,6 +3,5 @@
 <div *ngFor="let item of objectsList.list">
     <p>{{item.text}}</p>
     <p>{{item.description}}</p>
-    <a routerLink="/objects/details">Open 3D</a>
+    <a routerLink="/objects/details/{{item.text}}">Open 3D</a>
 </div>
-
