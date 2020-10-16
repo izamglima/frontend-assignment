@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'obects',
     loadChildren: () => import('./modules/render/render.module').then(m => m.RenderModule)
+  },
+  {
+    path: '**',
+    component: HomeComponent
   }
 ];
 
